@@ -7,3 +7,11 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+20.times do
+    Game.create({
+        title: Faker::Game.title,
+        genre: Faker::Game.genre,
+        platform: Faker::Game.platform,
+    })
+end
