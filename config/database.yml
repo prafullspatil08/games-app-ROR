@@ -82,4 +82,18 @@ test:
 production:
   primary: &primary_production
     <<: *default
-    database: games_demo_app
+    database: games_demo_app_production
+    username: games_demo_app
+    password: <%= ENV["GAMES_DEMO_APP_DATABASE_PASSWORD"] %>
+  cache:
+    <<: *primary_production
+    database: games_demo_app_production_cache
+    migrations_paths: db/cache_migrate
+  queue:
+    <<: *primary_production
+    database: games_demo_app_production_queue
+    migrations_paths: db/queue_migrate
+  cable:
+    <<: *primary_production
+    database: games_demo_app_production_cable
+    migrations_paths: db/cable_migrate
