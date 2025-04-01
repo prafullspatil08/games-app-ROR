@@ -1,6 +1,7 @@
 module Api
     module V1
         class GameController < ApplicationController
+            before_action :authenticate
             # GET /games
             def index
                 @games = Game.order(created_at: :asc)

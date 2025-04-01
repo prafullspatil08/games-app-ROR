@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+  # 
+  post 'api/v1/login', to: "authentication#login"
   namespace :api do
     namespace :v1 do
       resources :game
